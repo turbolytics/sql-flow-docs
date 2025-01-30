@@ -6,8 +6,8 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
   title: 'SQLFlow Documentation',
-  tagline: 'Making stream processing easy',
-  favicon: 'img/favicon.ico',
+  tagline: 'Making stream processing easy.',
+  favicon: 'img/sqlflow-small.png',
 
   // Set the production url of your site here
   url: 'https://your-docusaurus-site.example.com',
@@ -71,14 +71,14 @@ const config: Config = {
       title: 'SQLFlow Documentation',
       logo: {
         alt: 'My Site Logo',
-        src: 'img/logo.svg',
+        src: 'img/sqlflow-small.png',
       },
       items: [
         {
           type: 'docSidebar',
           sidebarId: 'tutorialSidebar',
           position: 'left',
-          label: 'Tutorial',
+          label: 'Tutorials',
         },
         // {to: '/blog', label: 'Blog', position: 'left'},
         {
@@ -95,7 +95,7 @@ const config: Config = {
           title: 'Docs',
           items: [
             {
-              label: 'Tutorial',
+              label: 'Tutorials',
               to: '/docs/intro',
             },
           ],

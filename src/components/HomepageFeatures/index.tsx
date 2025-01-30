@@ -12,32 +12,30 @@ type FeatureItem = {
 const FeatureList: FeatureItem[] = [
   {
     title: 'Easy to Use',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    Svg: require('@site/static/img/easytolearn.svg').default,
     description: (
       <>
-        SQLFlow models stream-processing as SQL queries.
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        SQLFlow models stream-processing as SQL queries using the <a href={"https://duckdb.org/docs/sql/introduction.html"}>DuckDB SQL dialect</a>.
+        Express your entire stream processing pipeline—ingestion, transformation, and enrichment—as a single SQL statement and configuration file.
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    title: 'High Performance',
+    Svg: require('@site/static/img/turbolytics-logo.svg').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        Process 10's of thousands of events per second on a single machine with low memory overhead, using Python, DuckDB, Arrow and Confluent Python Client.
       </>
     ),
   },
   {
-    title: 'Powered by React',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    title: 'Powered by DuckDB',
+    Svg: require('@site/static/img/duckdb.svg').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        Tap into the DuckDB ecosystem of tools and libraries to build your stream processing applications. SQLFlow support
+          parquet, csv, json and iceberg. Read data from Kafka.
       </>
     ),
   },
