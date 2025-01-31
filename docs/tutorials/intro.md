@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# Intro
+# Quickstart 
 
 Create a stream processor that reads data from Kafka **in less than 5 minutes**.
 
