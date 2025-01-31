@@ -39,19 +39,7 @@ commands:
 This example loads the DuckDB postgres extension and then attaches the postgres database to the pipeline context. The `commands` directive is optional.
 
 It contains an array of commands to execute during pipeline initialization. The commands are executed in order.
-
-## User Defined Functions (UDF)
-
-SQLFlow supports User Defined Functions (UDF) in the configuration file. 
-
-https://github.com/turbolytics/sql-flow/blob/main/dev/config/examples/udf.yml
-
-UDF Supports loading a function from the $PYTHONPATH. This will require that the end user either:
-
-- Loads their python file (without additional dependencies) into the docker container (such as -v /path/to/udf.py:/app/plugins/udf.py) and then adds the /app/plugins to the python path.
-- Create a new dockerfile based on turbolytics/sql-flow and adds copying UDF code and installs requirements, then puts the UDF code on the $PYTHONPATH
  
-
 ## Pipeline Configuration
 
 The pipeline configuration is the core of SQLFlow. It specifies the input source, handler, and output sink. The top level pipeline directive contains the following keys:
@@ -134,6 +122,17 @@ SQLFlow supports the following sinks:
 - Filesystem 
 - Iceberg ([example](https://github.com/turbolytics/sql-flow/blob/main/dev/config/examples/kafka.mem.iceberg.yml))
 - Any output that DuckDB supports through the `sqlcommand` sink.
+
+## User Defined Functions (UDF)
+
+SQLFlow supports User Defined Functions (UDF) in the configuration file.
+
+https://github.com/turbolytics/sql-flow/blob/main/dev/config/examples/udf.yml
+
+UDF Supports loading a function from the $PYTHONPATH. This will require that the end user either:
+
+- Loads their python file (without additional dependencies) into the docker container (such as -v /path/to/udf.py:/app/plugins/udf.py) and then adds the /app/plugins to the python path.
+- Create a new dockerfile based on turbolytics/sql-flow and adds copying UDF code and installs requirements, then puts the UDF code on the $PYTHONPATH
 
 ## Testing Configuration
 
