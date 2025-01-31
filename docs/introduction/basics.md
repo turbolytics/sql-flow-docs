@@ -14,6 +14,9 @@ SQLFlow is a modern, lightweight stream processor based on DuckDB. We want to en
 
 ![SQLFlow Core Components](./static/components.png)
 
+### DuckDB
+DuckDB is the core of SQLFlow. Every SQL statement inside of SQLFlow is executed using DuckDB. This means that the DuckDB SQL dialect should be used. Any statement that DuckDB Supports is also supported by SQLFlow.
+
 ### Input Source
 
 SQLFlow ingests data from a variety of input sources, including Kafka, and Webhooks. SQLFlow models the input as a stream of data.
