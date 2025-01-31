@@ -11,3 +11,10 @@ SQLFlow is based on python. It is deployed as a single process. Horizontal scali
 ## Why would I run SQLFlow?
 
 SQLFlow is a good fit if your data throughput < 30k messages per second. It is a good fit for simple stream enrichment, tumbling window aggregations, enhancing streaming data using custom functions (through UDFs). SQLFLow as a great way to create lightweight stream processing for high throughput data streams.
+
+## Why is SQLFlow written in Python?
+
+The python ecosystem is rich with libraries for data processing. SQLFlow leverages the Arrow and DuckDB libraries for high performance stream processing. Python is a great language for building stream processing applications. It is easy to understand, and has a rich ecosystem of libraries for data processing.
+
+The DuckDB python library is their most mature client library. Python also has an iceberg implementation that supports writing. Python is an accessible foundation for building a stream processing framework. Python is a wrapper around the high performance kafka library (librdkafka), DuckDB, and Arrow.
+ 
