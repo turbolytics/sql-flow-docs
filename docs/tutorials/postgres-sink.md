@@ -1,4 +1,4 @@
-# Using SQLFLow to Sink 5000 Rows / Second from Kafka To Postgres
+# Using SQLFlow to Sink 5000 Rows / Second from Kafka To Postgres
 
 Modern data workflows often require streaming data from real-time sources like Kafka into reliable, queryable storage systems such as PostgreSQL. While this task is essential for many analytics and operational pipelines, implementing it can be complex—often involving custom code, multiple tools, and extensive configuration.
 
