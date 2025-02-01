@@ -113,6 +113,8 @@ SQLFlow supports 3 handlers:
 
 The most important part of the handler is the `sql` key. This is the SQL to execute against the input batch. The result of the SQL is written to the output sink. 
 
+#### The `batch` Table
+
 ### Sink Configuration
 
 SQLFlow supports the following sinks:
