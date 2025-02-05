@@ -80,7 +80,7 @@ const config: Config = {
           sidebarId: 'docsSidebar',
           label: 'Docs',
         },
-        // {to: '/blog', label: 'Blog', position: 'left'},
+        {to: 'docs/category/tutorials/', label: 'Tutorials', position: 'left'},
         {
           href: 'https://github.com/turbolytics/sql-flow',
           label: 'GitHub',
