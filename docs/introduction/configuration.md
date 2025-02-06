@@ -22,7 +22,7 @@ https://github.com/turbolytics/sql-flow/tree/main/dev/config/examples
 
 ## Command Configuration
 
-Commands are SQL statements during pipeline initialization. Commands allow for ATTACHing databases to the pipeline context. The `commands` directive is a top level directive in the configuration file.
+Commands are SQL statements executed during pipeline initialization. These commands allow for ATTACHing databases to the pipeline context. The `commands` directive is a top level directive in the configuration file.
 
 ```yaml
 commands:
