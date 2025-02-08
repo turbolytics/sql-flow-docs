@@ -138,4 +138,144 @@ UDF Supports loading a function from the $PYTHONPATH. This will require that the
 
 ## Testing Configuration
 
+SQLFlow supports testing the configuration file. The configuration file can be tested using the following command:
+
+```bash
+python3 cmd/sql-flow.py config validate $(pwd)/dev/config/examples/bluesky/bluesky.kafka.raw.yml 
+```
+
+## Templating 
+
+SQLFlow files support templating using the python jinja library (https://jinja.palletsprojects.com/en/stable/)
+
 ## Environmental Variables
+
+SQLFlow supports environmental variables in the configuration file. 
+
+Any variable starting with `SQLFLOW_` will be replaced with the environmental variable value. Consider the following example:
+
+```
+  brokers: [{{ SQLFLOW_KAFKA_BROKERS|default('localhost:9092') }}]
+```
+
+This will replace `SQLFLOW_KAFKA_BROKERS` with the environmental variable value. If the environmental variable is not set, it will default to `localhost:9092`.
+
+## Example Configuration Options
+
+The following yaml lists the full set of available configuration options:
+
+```yaml
+# List of SQL commands to execute before processing the pipeline.
+commands:
+  -
+    # Name of the command for reference.
+    name: <string>
+    # SQL statements to execute.
+    sql: <string>
+# Predefined SQL tables used in the pipeline.
+tables:
+  # List of tables with their SQL definitions and management configurations.
+  sql:
+    -
+      # Name of the table.
+      name: <string>
+      # SQL statements to create the table and indexes.
+      sql: <string>
+      # Manager for handling windowing operations and clean-up.
+      manager:
+        # Tumbling window management for table data.
+        tumbling_window:
+          # SQL query to collect closed tumbling windows.
+          collect_closed_windows_sql: <string>
+          # SQL query to delete closed tumbling windows.
+          delete_closed_windows_sql: <string>
+        # Configuration for the data sink.
+        sink:
+          # Sink identifier.
+          type: kafka | noop | iceberg | console | sqlcommand
+          # Kafka-specific sink configuration.
+          kafka:
+            # List of Kafka brokers for publishing data.
+            brokers:
+              - <array>
+            # Kafka topic where processed data will be written.
+            topic: <string>
+          # Iceberg-specific sink configuration.
+          iceberg:
+            # Name of the Iceberg catalog (e.g., 'sqlflow_test').
+            catalog_name: <string>
+            # Name of the Iceberg table (e.g., 'default.city_events').
+            table_name: <string>
+          # Sink type that executes a SQL command.
+          sqlcommand:
+            # SQL command that inserts data into a database.
+            sql: <string>
+# List of User-Defined Functions (UDFs) to be used in SQL queries.
+udfs:
+  -
+    # Name of the function as referenced in SQL queries.
+    function_name: <string>
+    # Python import path where the function is defined.
+    import_path: <string>
+# Main pipeline configuration.
+pipeline:
+  # Name of the pipeline.
+  name: <string>
+  # Description of the pipeline.
+  description: <string>
+  # Number of messages processed in a batch.
+  batch_size: <integer>
+  # Time interval to flush batches in seconds.
+  flush_interval_seconds: <integer>
+  # Configuration for the data source.
+  source:
+    # Error handling strategy for the source.
+    on_error:
+      # Defines how errors should be handled.
+      policy: raise | ignore
+    # Type of source.
+    type: kafka | websocket
+    # Kafka-specific source configuration.
+    kafka:
+      # List of Kafka broker addresses.
+      brokers:
+        - <array>
+      # Kafka consumer group ID.
+      group_id: <string>
+      # Offset reset policy.
+      auto_offset_reset: earliest | latest
+      # List of Kafka topics to consume.
+      topics:
+        - <array>
+    # WebSocket-specific source configuration.
+    websocket:
+      # WebSocket URI to connect to (e.g., 'wss://example.com').
+      uri: <string>
+  # Data processing configuration.
+  handler:
+    # Type of handler used for processing.
+    type: handlers.InferredDiskBatch | handlers.InferredMemBatch | handlers.StructuredBatch
+    # SQL query to process each batch.
+    sql: <string>
+  # Configuration for the data sink.
+  sink:
+    # Type of sink (supports 'kafka' or 'noop').
+    type: kafka | noop | iceberg | console | sqlcommand
+    # Kafka-specific sink configuration.
+    kafka:
+      # List of Kafka brokers for publishing data.
+      brokers:
+        - <array>
+      # Kafka topic where processed data will be written.
+      topic: <string>
+    # Iceberg-specific sink configuration.
+    iceberg:
+      # Name of the Iceberg catalog (e.g., 'sqlflow_test').
+      catalog_name: <string>
+      # Name of the Iceberg table (e.g., 'default.city_events').
+      table_name: <string>
+    # Sink type that executes a SQL command.
+    sqlcommand:
+      # SQL command that inserts data into a database.
+      sql: <string>
+```
