@@ -33,7 +33,7 @@ SQLFlow ships with cli support to test a stream configuration against any fixtur
 
 Run the invoke command to test the configuration file against a set of test data:
 ```
-docker run -v $(pwd)/dev:/tmp/conf -v /tmp/sqlflow:/tmp/sqlflow turbolytics/sql-flow:latest dev invoke /tmp/conf/config/examples/basic.agg.yml /tmp/conf/fixtures/simple.json
+docker run -v $(pwd)/dev:/tmp/conf -v /tmp/sqlflow:/tmp/sqlflow turbolytics/sql-flow:latest dev invoke /tmp/conf/config/examples/basic.agg.mem.yml /tmp/conf/fixtures/simple.json
 ```
 
 The following output should show:

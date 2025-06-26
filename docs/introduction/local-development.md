@@ -42,7 +42,7 @@ make setup-dev
 Use the `invoke` CLI to test your SQLFlow pipeline configuration locally with sample data:
 
 ```bash
-python3 cmd/sql-flow.py dev invoke dev/config/examples/basic.agg.yml dev/fixtures/simple.json
+python3 cmd/sql-flow.py dev invoke dev/config/examples/basic.agg.mem.yml dev/fixtures/simple.json
 ```
 
 Expected output:
